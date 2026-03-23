@@ -7,9 +7,19 @@
 		return v != null ? parseInt(v, 10) : defaultFavor;
 	}
 
+	var extraLineHtml = '好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你呀！<br />';
+
+	function updateExtraLines(num) {
+		var count = num > 100 ? Math.floor((num - 100) / 10) : 0;
+		var html = '';
+		for (var i = 0; i < count; i++) html += extraLineHtml;
+		$("#extraFavorLines").html(html);
+	}
+
 	function setFavor(num) {
 		localStorage.setItem(FAVOR_KEY, String(num));
 		$("#favorNum").text(num);
+		updateExtraLines(num);
 	}
 
 	var colors = ['#e91e63','#f44336','#ff5722','#ff9800','#ffeb3b','#8bc34a','#4caf50','#00bcd4','#2196f3','#3f51b5','#9c27b0','#e91e8c'];
@@ -71,10 +81,5 @@
 		overlay.addEventListener("pointerup", onTap, { passive: false });
 		overlay.addEventListener("touchend", onTap, { passive: false });
 		overlay.addEventListener("click", onTap);
-
-		$("#favorReset").on("click", function(e) {
-			e.stopPropagation();
-			setFavor(defaultFavor);
-		});
 	});
 })();
