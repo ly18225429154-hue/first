@@ -21,6 +21,10 @@
 html,body{touch-action:manipulation;min-height:100vh;-webkit-tap-highlight-color:transparent}
 #favorOverlay{position:fixed;inset:0;z-index:100;cursor:pointer}
 #favorOverlay{top:0;left:0;right:0;bottom:0}
+@media (max-width:1110px),(max-height:700px){
+	body{overflow-x:hidden}
+	#content{transform:scale(min(1,100vw/1110,100vh/700));transform-origin:top center}
+}
 </style>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/garden.js"></script>
@@ -41,9 +45,9 @@ html,body{touch-action:manipulation;min-height:100vh;-webkit-tap-highlight-color
         	喜欢你<br />
             喜欢小月<br /><br />
 
-            <span class="keyword">喜欢你可爱的外貌</span><br />
+            喜欢你可爱的外貌<br />
             喜欢你可爱的性格<br />
-            <span class="keyword">喜欢你可爱的语音包</span><br /><br />
+            喜欢你可爱的语音包<br /><br />
 
             喜欢你盯着我眨眼卖萌<br />
             喜欢你说想我<br /><br />
