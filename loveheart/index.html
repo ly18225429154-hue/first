@@ -12,10 +12,16 @@
 </style>
 
 <link href="css/default.css" type="text/css" rel="stylesheet">
-<style>#messages{text-align:center}#words{text-align:center}#elapseClock{margin-top:10px;margin-bottom:10px}</style>
+<style>
+#messages{text-align:center}#words{text-align:center}#elapseClock{margin-top:10px;margin-bottom:10px}
+#favorDisplay{font-size:22px;color:#e91e63;font-weight:bold;margin-bottom:8px;cursor:default}
+#favorDisplay #favorNum{font-family:digit,monospace;font-size:28px}
+.float-heart{position:fixed;font-size:24px;pointer-events:none;z-index:9999;transition:none}
+</style>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/garden.js"></script>
 <script type="text/javascript" src="js/functions_dev.js"></script>
+<script type="text/javascript" src="js/favor.js"></script>
 
 </head>
 
@@ -41,13 +47,14 @@
             喜欢你下楼梯嘿咻嘿咻一步步迈开脚步的样子<br /><br />
 
             <hr />
-			好喜欢你好喜欢你好喜欢你呀
+			好喜欢你好喜欢你好喜欢你好喜欢你好喜欢你好喜欢你呀！
 
 
 		</div>
 		<div id="loveHeart">
 			<canvas id="garden"></canvas>
 			<div id="words">
+				<div id="favorDisplay">好感度 <span id="favorNum">100</span></div>
 				<div id="elapseClock"></div>
 				<div id="messages">
 					相遇，相识，相恋一个月...<br />
