@@ -18,6 +18,7 @@
 #favorDisplay{font-size:22px;color:#e91e63;font-weight:bold;margin-bottom:8px;cursor:default}
 #favorDisplay #favorNum{font-family:digit,monospace;font-size:28px}
 .float-heart{position:fixed;font-size:24px;pointer-events:none;z-index:9999;transition:none}
+.text-pink{color:#e91e63}
 html,body{touch-action:manipulation;min-height:100vh;-webkit-tap-highlight-color:transparent}
 #favorOverlay{position:fixed;inset:0;z-index:100;cursor:pointer}
 #favorOverlay{top:0;left:0;right:0;bottom:0}
@@ -42,21 +43,21 @@ html,body{touch-action:manipulation;min-height:100vh;-webkit-tap-highlight-color
 <div id="mainDiv">
 	<div id="content">
 		<div id="code">
-        	喜欢你<br />
-            喜欢小月<br /><br />
+        	<span class="text-pink">喜欢</span>你<br />
+            <span class="text-pink">喜欢</span>小月<br /><br />
 
-            喜欢你可爱的外貌<br />
-            喜欢你可爱的性格<br />
-            喜欢你可爱的语音包<br /><br />
+            <span class="text-pink">喜欢</span>你可爱的外貌<br />
+            <span class="text-pink">喜欢</span>你可爱的性格<br />
+            <span class="text-pink">喜欢</span>你可爱的语音包<br /><br />
 
-            喜欢你盯着我眨眼卖萌<br />
-            喜欢你说想我<br /><br />
+            <span class="text-pink">喜欢</span>你盯着我眨眼卖萌<br />
+            <span class="text-pink">喜欢</span>你说想我<br /><br />
 
-            喜欢你吃东西一口一口慢慢慢慢往嘴里放的样子<br />
-            喜欢你下楼梯嘿咻嘿咻一步步迈开脚步的样子<br /><br />
+            <span class="text-pink">喜欢</span>你吃东西一口一口慢慢慢慢往嘴里放的样子<br />
+            <span class="text-pink">喜欢</span>你下楼梯嘿咻嘿咻一步步迈开脚步的样子<br /><br />
 
             <hr />
-			好喜欢你好喜欢你好喜欢你好喜欢你好喜欢你好喜欢你呀！
+			好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你呀！
 
 
 		</div>
@@ -115,7 +116,7 @@ if (!document.createElement('canvas').getContext) {
 }
 </script>
 <div style="text-align:center;clear:both;position:relative;z-index:1000">
-<p>Made for Mrs.Right, made by <a href="https://github.com/enfangzhong" target="_blank">Viper<a /></p>
+<p>好感度 <a href="javascript:void(0)" id="favorReset" style="color:#999">重置为100</a> | Made for Mrs.Right, made by <a href="https://github.com/enfangzhong" target="_blank">Viper<a /></p>
 <p>Copyright © 2017 - 2019. All Rights Reserved. Designed by <a href="https://github.com/enfangzhong" target="_blank">Viper<a /> </p>
 </div>
 </body>

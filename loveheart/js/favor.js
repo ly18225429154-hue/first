@@ -71,5 +71,10 @@
 		overlay.addEventListener("pointerup", onTap, { passive: false });
 		overlay.addEventListener("touchend", onTap, { passive: false });
 		overlay.addEventListener("click", onTap);
+
+		$("#favorReset").on("click", function(e) {
+			e.stopPropagation();
+			setFavor(defaultFavor);
+		});
 	});
 })();
