@@ -43,15 +43,29 @@
 
 	$(function () {
 		setFavor(getFavor());
+		var lastTouchTime = 0;
 
-		$(document).on("click", function (e) {
-			if ($(e.target).closest("embed").length) return;
-			var x = e.clientX;
-			var y = e.clientY;
+		function handleTap(x, y, target) {
+			if (target && ($(target).closest("embed").length || $(target).closest("a").length)) return;
 			createFlyingHeart(x, y, function () {
 				var n = getFavor() + 1;
 				setFavor(n);
 			});
+		}
+
+		$(document).on("touchend", function (e) {
+			if (e.changedTouches && e.changedTouches.length) {
+				var t = e.changedTouches[0];
+				var target = e.target;
+				if (!$(target).closest("a").length) e.preventDefault();
+				lastTouchTime = Date.now();
+				handleTap(t.clientX, t.clientY, target);
+			}
+		});
+
+		$(document).on("click", function (e) {
+			if (Date.now() - lastTouchTime < 400) return;
+			handleTap(e.clientX, e.clientY, e.target);
 		});
 	});
 })();
