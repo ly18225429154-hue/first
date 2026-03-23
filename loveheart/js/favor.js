@@ -43,29 +43,28 @@
 
 	$(function () {
 		setFavor(getFavor());
-		var lastTouchTime = 0;
+		var overlay = document.getElementById("favorOverlay");
+		if (!overlay) return;
 
-		function handleTap(x, y, target) {
-			if (target && ($(target).closest("embed").length || $(target).closest("a").length)) return;
+		var lastTap = 0;
+		function handleTap(x, y) {
 			createFlyingHeart(x, y, function () {
 				var n = getFavor() + 1;
 				setFavor(n);
 			});
 		}
 
-		$(document).on("touchend", function (e) {
-			if (e.changedTouches && e.changedTouches.length) {
-				var t = e.changedTouches[0];
-				var target = e.target;
-				if (!$(target).closest("a").length) e.preventDefault();
-				lastTouchTime = Date.now();
-				handleTap(t.clientX, t.clientY, target);
-			}
-		});
+		function onTap(e) {
+			if (Date.now() - lastTap < 200) return;
+			lastTap = Date.now();
+			var x = e.clientX || (e.changedTouches && e.changedTouches[0].clientX);
+			var y = e.clientY || (e.changedTouches && e.changedTouches[0].clientY);
+			if (e.cancelable) e.preventDefault();
+			handleTap(x, y);
+		}
 
-		$(document).on("click", function (e) {
-			if (Date.now() - lastTouchTime < 400) return;
-			handleTap(e.clientX, e.clientY, e.target);
-		});
+		overlay.addEventListener("pointerup", onTap, { passive: false });
+		overlay.addEventListener("touchend", onTap, { passive: false });
+		overlay.addEventListener("click", onTap);
 	});
 })();
