@@ -7,13 +7,25 @@
 		return v != null ? parseInt(v, 10) : defaultFavor;
 	}
 
-	var extraLineHtml = '好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你呀！<br />';
+	var extraLineHtml = '好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你好<span class="text-pink">喜欢</span>你呀！';
+	var displayedExtraCount = 0;
+	var animating = false;
 
 	function updateExtraLines(num) {
-		var count = num > 100 ? Math.floor((num - 100) / 10) : 0;
-		var html = '';
-		for (var i = 0; i < count; i++) html += extraLineHtml;
-		$("#extraFavorLines").html(html);
+		var count = num >= 200 ? Math.floor((num - 100) / 100) : 0;
+		if (count <= displayedExtraCount) return;
+		animating = true;
+		function addNext() {
+			if (displayedExtraCount >= count) {
+				animating = false;
+				return;
+			}
+			var line = $('<span class="extra-line">' + extraLineHtml + '</span>');
+			$("#extraFavorLines").append(line);
+			displayedExtraCount++;
+			setTimeout(addNext, 500);
+		}
+		addNext();
 	}
 
 	function setFavor(num) {
