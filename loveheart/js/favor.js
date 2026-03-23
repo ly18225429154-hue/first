@@ -12,9 +12,14 @@
 		$("#favorNum").text(num);
 	}
 
+	var colors = ['#e91e63','#f44336','#ff5722','#ff9800','#ffeb3b','#8bc34a','#4caf50','#00bcd4','#2196f3','#3f51b5','#9c27b0','#e91e8c'];
+	function randomColor() {
+		return colors[Math.floor(Math.random() * colors.length)];
+	}
+
 	function createFlyingHeart(startX, startY, onComplete) {
 		var heart = $('<span class="float-heart">❤</span>');
-		heart.css({ left: startX + 'px', top: startY + 'px' });
+		heart.css({ left: startX + 'px', top: startY + 'px', color: randomColor() });
 		$("body").append(heart);
 
 		var target = $("#favorDisplay")[0];
